@@ -52,4 +52,3 @@ pipeline {
             Jenkins''', cc: '', from: '', replyTo: '', subject: 'Jenkins build is Success.', to: 'srikanthrdy7979@gmail.com'
         }
     }
-}
