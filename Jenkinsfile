@@ -15,7 +15,7 @@ pipeline {
             steps {
                 // Run SonarQube analysis on your code
                 withSonarQubeEnv('SonarQube') {
-                    sh 'mvn sonar:sonar'
+                    sh 'sonar:sonar'
                 }
             }
         }
