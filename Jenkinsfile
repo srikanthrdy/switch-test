@@ -5,9 +5,11 @@ pipeline {
         stage('Maven Build') {
             steps {
                 // Build your Maven project
+                withMaven(globalMavenSettingsConfig: '', jdk: '', maven: 'Maven', mavenSettingsConfig: '', traceability: true) {
                 sh 'mvn clean install'
             }
-        }
+         }
+    }
 
         stage('SonarQube Analysis') {
             steps {
