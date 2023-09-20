@@ -37,6 +37,12 @@ pipeline {
     post {
         success {
             // Add post-build steps here, e.g., notifications or deployment
+            mail bcc: '', body: '''Hi Srikanth
+
+            Your Jenkins Build is Success.
+
+            Thanks
+            Jenkins''', cc: '', from: '', replyTo: '', subject: 'Jenkins build is Success.', to: 'srikanthrdy7979@gmail.com'
         }
     }
 }
