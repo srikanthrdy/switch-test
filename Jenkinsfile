@@ -1,12 +1,17 @@
 pipeline {
     agent any
 
+     environment {
+        // Define the tool installations
+        MAVEN_HOME = tool name: 'Maven', type: 'maven'
+        SONAR_SCANNER_HOME = tool name: 'SonarQube', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
+    }
+
     stages {
         stage('Maven Build') {
             steps {
                 // Build your Maven project
-                withMaven(globalMavenSettingsConfig: '', jdk: '', maven: 'Maven', mavenSettingsConfig: '', traceability: true) {
-                sh 'mvn clean install'
+                sh "${MAVEN_HOME}/bin/mvn clean install"
             }
          }
     }
@@ -15,7 +20,8 @@ pipeline {
             steps {
                 // Run SonarQube analysis on your code
                 withSonarQubeEnv('SonarQube') {
-                    sh 'sonar:sonar'
+                  withSonarQubeEnv('SonarQube Server Name') {
+                    sh "${SONAR_SCANNER_HOME}/bin/sonar-scanner"
                 }
             }
         }
