@@ -14,7 +14,6 @@ pipeline {
                 sh "${MAVEN_HOME}/bin/mvn clean install"
             }
          }
-    }
 
         stage('SonarQube Analysis') {
             steps {
@@ -52,3 +51,4 @@ pipeline {
             Jenkins''', cc: '', from: '', replyTo: '', subject: 'Jenkins build is Success.', to: 'srikanthrdy7979@gmail.com'
         }
     }
+}
