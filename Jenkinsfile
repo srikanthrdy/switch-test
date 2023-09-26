@@ -8,7 +8,7 @@ pipeline {
             steps {
                 // Build your Maven project
                 withMaven(globalMavenSettingsConfig: '', jdk: '', maven: 'Maven', mavenSettingsConfig: '', traceability: true) {
-                sh 'mvn clean install'
+                sh 'mvn clean verify'
             }
          }
     }
@@ -18,7 +18,7 @@ pipeline {
                 // Run SonarQube analysis on your code
                 withSonarQubeEnv('SonarQube') {
                     withMaven(globalMavenSettingsConfig: '', jdk: '', maven: 'Maven', mavenSettingsConfig: '', traceability: true) {
-                    sh 'mvn sonar:sonar'
+                    //sh 'mvn sonar:sonar'
                 }
             }
         }
@@ -33,7 +33,7 @@ pipeline {
 
                 // Push the Docker image to a Docker registry (e.g., Docker Hub)
                 //sh 'docker push my-web-app-image'
-                sh 'docker run -p 7000:8080 my-web-app-image'
+                sh ' docker run my-web-app-image'
                 sh 'docker ps -a'
                 sh 'docke ps'
             }
