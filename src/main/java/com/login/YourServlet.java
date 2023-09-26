@@ -46,7 +46,7 @@ public class YourServlet extends HttpServlet {
                 response.sendRedirect("dashboard.jsp");
             } else {
                 // Handle invalid login (e.g., display an error message)
-                response.sendRedirect("index.jsp"); // Redirect back to login page
+                response.sendRedirect("success.jsp"); // Redirect back to login page
             }
         }
     }

@@ -3,8 +3,9 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Login Page</title>
-    <style>
+    <title>Registration Successful</title>
+    <!-- Add your CSS styles here -->
+      <style>
         body {
             font-family: Arial, sans-serif;
             background-color: #f2f2f2;
@@ -72,18 +73,19 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <h2>Login</h2>
-        <form action="login" method="post">
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required autofocus/><br/>
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required/><br/>
-            <button type="submit">Login</button>
-        </form>
-        <div>
-         <a href="registration.jsp">Sign Up</a>
-        </div>
+    <div>
+        <h2>Registration Successful</h2>
+        <p>Thank you for registering!</p>
+        
+        <h3>Registration Details:</h3>
+        <ul>
+            <li><strong>Username:</strong> <%= request.getParameter("username") %></li>
+            <li><strong>Phone Number:</strong> <%= request.getParameter("phoneNumber") %></li>
+            <li><strong>Email:</strong> <%= request.getParameter("email") %></li>
+            <!-- You may choose to display more details here -->
+        </ul>
+        
+        <!-- Add additional content or links here -->
     </div>
 </body>
 </html>

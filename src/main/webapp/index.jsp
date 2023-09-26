@@ -81,8 +81,8 @@
             <input type="password" id="password" name="password" required/><br/>
             <button type="submit">Login</button>
         </form>
-        <div class="signup-link">
-            <a href="registration.jsp">Sign Up</a>
+        <div>
+         <a href="registration.jsp">Sign Up</a>
         </div>
     </div>
 </body>

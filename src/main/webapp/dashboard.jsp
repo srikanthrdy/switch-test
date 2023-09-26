@@ -3,8 +3,9 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Login Page</title>
-    <style>
+    <title>Dashboard</title>
+    <!-- Add your CSS styles here -->
+      <style>
         body {
             font-family: Arial, sans-serif;
             background-color: #f2f2f2;
@@ -72,18 +73,18 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <h2>Login</h2>
-        <form action="login" method="post">
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required autofocus/><br/>
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required/><br/>
-            <button type="submit">Login</button>
-        </form>
-        <div>
-         <a href="registration.jsp">Sign Up</a>
-        </div>
+    <div>
+        <h2>Welcome to Your Dashboard</h2>
+        
+        <!-- Add content for the dashboard here -->
+        <p>This is the dashboard page where you can display user-specific information and functionality.</p>
+        
+        <!-- Example: Display user's username -->
+        <p><strong>Username:</strong> <%= request.getAttribute("username") %></p>
+        
+        <!-- Add more content, links, or functionality as needed -->
+        
+        <a href="logout.jsp">Logout</a> <!-- Example logout link -->
     </div>
 </body>
 </html>
