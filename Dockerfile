@@ -1,14 +1,5 @@
-# Use an official Tomcat runtime as a parent image
-FROM tomcat:9.0.80-jre11-temurin-jammy
+# Use a lightweight base image
+FROM alpine:latest
 
-# Set environment variables if necessary
-# ENV EXAMPLE_VARIABLE=value
-
-# Copy your WAR file into the webapps directory of Tomcat
-COPY /target/test.war /usr/local/tomcat/webapps/
-
-# Optionally, you can expose ports if needed (e.g., Tomcat default port 8080)
- EXPOSE 7000
-
-# Define an entrypoint (optional)
- CMD ["catalina.sh", "run"]
+# Copy the WAR file from your local filesystem to the Docker container
+COPY ./target/test.war C:\Users\Srikanth\Downloads\apache-tomcat-10.1.13-windows-x64\apache-tomcat-10.1.13\webapps
