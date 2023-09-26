@@ -3,8 +3,8 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Login Page</title>
-    <style>
+    <title>Registration Page</title>
+        <style>
         body {
             font-family: Arial, sans-serif;
             background-color: #f2f2f2;
@@ -73,16 +73,27 @@
 </head>
 <body>
     <div class="container">
-        <h2>Login</h2>
-        <form action="login" method="post">
+        <h2>Registration</h2>
+        <form action="register" method="post">
             <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required autofocus/><br/>
+            <input type="text" id="username" name="username" required/><br/>
+
+            <label for="phoneNumber">Phone Number:</label>
+            <input type="tel" id="phoneNumber" name="phoneNumber" required/><br/>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required/><br/>
+
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" required/><br/>
-            <button type="submit">Login</button>
+
+            <label for="confirmPassword">Confirm Password:</label>
+            <input type="password" id="confirmPassword" name="confirmPassword" required/><br/>
+
+            <button type="submit">Register</button>
         </form>
-        <div class="signup-link">
-            <a href="registration.jsp">Sign Up</a>
+        <div class="login-link">
+            <a href="index.jsp">Already have an account? Login</a>
         </div>
     </div>
 </body>
