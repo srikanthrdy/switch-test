@@ -1,5 +1,3 @@
-package com.yourpackage; // Replace with your actual package name
-
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import org.bson.Document;
@@ -11,7 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import com.login.MongoDBManager;
-
 
 @WebServlet(name = "YourServlet", urlPatterns = {"/login", "/register"})
 public class YourServlet extends HttpServlet {
@@ -30,31 +27,37 @@ public class YourServlet extends HttpServlet {
             // Validate and insert user data into MongoDB
             if (isValidRegistrationData(username, phoneNumber, email, password)) {
                 insertUserDataIntoMongoDB(username, phoneNumber, email, password);
-                response.sendRedirect("index.jsp"); // Redirect to login page
+                request.setAttribute("registrationSuccess", true);
+        
+        // Forward the request to success.jsp
+                 request.getRequestDispatcher("success.jsp").forward(request, response);
             } else {
-                // Handle invalid registration data (e.g., display an error message)
+        // Handle invalid registration data (e.g., display an error message)
                 response.sendRedirect("registration.jsp"); // Redirect back to registration page
             }
-        } else if ("/login".equals(action)) {
+            } else if ("/login".equals(action)) {
             // Login logic
             String username = request.getParameter("username");
             String password = request.getParameter("password");
 
             // Validate login credentials (check against MongoDB)
             if (isValidLoginCredentials(username, password)) {
-                // Redirect to a dashboard or home page after successful login
-                response.sendRedirect("dashboard.jsp");
+                // Set attributes for dashboard.jsp
+                request.setAttribute("username", username);
+
+                // Redirect to dashboard.jsp upon successful login
+                request.getRequestDispatcher("dashboard.jsp").forward(request, response);
             } else {
                 // Handle invalid login (e.g., display an error message)
-                response.sendRedirect("success.jsp"); // Redirect back to login page
+                response.sendRedirect("index.jsp"); // Redirect back to login page
             }
         }
     }
 
     private boolean isValidRegistrationData(String username, String phoneNumber, String email, String password) {
-        // Add your validation logic here (e.g., check if the username is unique)
+        // Implement your validation logic here (e.g., check if the username is unique)
         // Return true if data is valid, false otherwise
-        return true;
+        return true; // Placeholder, replace with actual validation logic
     }
 
     private void insertUserDataIntoMongoDB(String username, String phoneNumber, String email, String password) {

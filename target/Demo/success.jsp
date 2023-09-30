@@ -74,7 +74,10 @@
 </head>
 <body>
     <div>
-        <h2>Registration Successful</h2>
+
+        <h2>Registration Status</h2>
+        <% if (request.getAttribute("registrationSuccess") != null && (boolean) request.getAttribute("registrationSuccess")) { %>
+         <p>Successfully registered!</p>
         <p>Thank you for registering!</p>
         
         <h3>Registration Details:</h3>
@@ -86,6 +89,13 @@
         </ul>
         
         <!-- Add additional content or links here -->
-    </div>
+
+            <!-- Display user profile details here -->
+        <% } else { %>
+            <p>Registration failed. Please check your data.</p>
+             <p>Try to register Again!</p>
+            <!-- Display an error message or redirect as needed -->
+        <% } %>
+            </div>
 </body>
 </html>

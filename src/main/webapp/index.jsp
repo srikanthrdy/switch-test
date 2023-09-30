@@ -18,6 +18,11 @@
             color: #333;
         }
 
+        h1 {
+            text-align: center;
+            color: white;
+        }
+
         .container {
             width: 600px;
             margin: 0 auto;
@@ -72,6 +77,9 @@
     </style>
 </head>
 <body>
+    <div>
+        <h1>*****WELCOME*****</h1>
+    </div>
     <div class="container">
         <h2>Login</h2>
         <form action="login" method="post">
