@@ -21,18 +21,12 @@
         h1 {
             text-align: center;
             color: white;
-            border-radius: 20px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
         }
 
         .container {
-            width: 900px;
+            width: 600px;
             margin: 0 auto;
-            padding: 60px;
+            padding: 40px;
             background-color: rgba(255, 255, 255, 0.8);
             border-radius: 20px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
