@@ -1,2 +1,7 @@
+<<<<<<< HEAD
 C:\Users\Srikanth\Login-test\src\main\java\com\login\LoginServlet.java
 C:\Users\Srikanth\Login-test\src\main\java\com\login\RegistrationServlet.java
+=======
+/home/srikanth/Login-test/src/main/java/com/login/RegistrationServlet.java
+/home/srikanth/Login-test/src/main/java/com/login/LoginServlet.java
+>>>>>>> 339cc29b2214dab22c18ad17cedd3b6b18ee7622

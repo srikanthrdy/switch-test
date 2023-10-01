@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -128,3 +129,135 @@
         </plugins>
     </build>
 </project>
+=======
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>demo</groupId>
+    <artifactId>Login</artifactId>
+    <packaging>war</packaging>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>test Maven Webapp</name>
+    <url>http://maven.apache.org</url>
+
+    
+<distributionManagement>
+        <repository>
+            <id>nexus-releases</id>
+            <url>http://localhost:8081/repository/maven-releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>nexus-snapshots</id>
+            <url>http://localhost:8081/repository/maven-snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+    <!-- SonarQube Properties -->
+    <properties>
+        <!-- SonarQube Server URL -->
+        <sonar.host.url>http://localhost:9000</sonar.host.url>
+
+        <!-- SonarQube Project Key -->
+        <sonar.projectKey>LoginTest</sonar.projectKey>
+
+        <!-- SonarQube Authentication Token (if required) -->
+        <sonar.token>sqp_96828a19258bbae34a2593785535c52dd02d7199</sonar.token>
+    </properties>
+
+    <dependencies>
+        <!-- Servlet API -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>4.0.1</version>
+            <scope>provided</scope>
+        </dependency>
+
+    <!-- MongoDB Java driver -->
+    <dependency>
+        <groupId>org.mongodb</groupId>
+        <artifactId>mongo-java-driver</artifactId>
+        <version>3.12.12</version> <!-- Use the latest version available -->
+    </dependency>
+    <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>4.12</version> <!-- Use the latest version available -->
+        <scope>test</scope>
+    </dependency>
+    <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+        <version>8.0.26</version> <!-- Use the latest version available -->
+    </dependency>
+
+
+        <!-- Add any additional dependencies your project requires here -->
+    </dependencies>
+
+    <build>
+        <finalName>Demo</finalName>
+        <plugins>
+            <!-- Tomcat Maven Plugin-->
+            <!--
+            <plugin>
+                <groupId>org.apache.tomcat.maven</groupId>
+                <artifactId>tomcat7-maven-plugin</artifactId>
+                <version>2.2</version>
+                <configuration>
+                    <url>http://localhost:8089/manager/text</url>
+                    <username>tomcat</username>
+                    <password>s3cret</password>
+                    <path>/Demo</path>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>tomcat-deploy</id>
+                        <phase>deploy</phase>
+                        <goals>
+                            <goal>redeploy</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin> 
+          -->
+            <!-- Exclude the deploy goal of the Maven Deploy Plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <version>3.1.1</version>
+                <configuration>
+                    <goals>deploy</goals>
+                </configuration>
+            </plugin>
+            <!-- SonarQube Maven Plugin -->
+            <plugin>
+                <groupId>org.sonarsource.scanner.maven</groupId>
+                <artifactId>sonar-maven-plugin</artifactId>
+                <version>3.10.0.2594</version> <!-- Replace with the desired version -->
+            </plugin>
+            <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-release-plugin</artifactId>
+            <version>3.0.0</version> <!-- Use the latest version available -->
+            <configuration>
+                <!-- Optional: specify the goals for release and prepare steps -->
+                <!-- By default, it uses 'clean verify' for the preparation -->
+                <goals>deploy</goals>
+            </configuration>
+        </plugin>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>3.8.1</version> <!-- Use a suitable version -->
+            <configuration>
+                <source>1.8</source>
+                <target>1.8</target>
+            </configuration>
+        </plugin>
+        </plugins>
+    </build>
+</project>
+>>>>>>> 339cc29b2214dab22c18ad17cedd3b6b18ee7622

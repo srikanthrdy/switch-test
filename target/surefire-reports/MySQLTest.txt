@@ -1,4 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: MySQLTest
 -------------------------------------------------------------------------------
+<<<<<<< HEAD
 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.616 s -- in MySQLTest
+=======
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.648 s -- in MySQLTest
+>>>>>>> 339cc29b2214dab22c18ad17cedd3b6b18ee7622
