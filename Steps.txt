@@ -1,4 +1,4 @@
-<<<<<<< HEAD     
+<<<<<<< HEAD
 To achieve the functionality you described for your web application, you will need to perform several steps, including setting up your MySQL database, creating JSP files, and configuring your servlets. Here's a step-by-step guide:
 
 1. Set Up MySQL Database:
@@ -28,7 +28,6 @@ Copy code
     <servlet-name>RegistrationServlet</servlet-name>
     <url-pattern>/register</url-pattern>
 </servlet-mapping>
-
 <servlet>
     <servlet-name>LoginServlet</servlet-name>
     <servlet-class>com.yourpackage.LoginServlet</servlet-class>
