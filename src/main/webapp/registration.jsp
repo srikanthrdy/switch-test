@@ -19,11 +19,11 @@
         }
 
         .container {
-            width: 600px;
+            width: 900px;
             margin: 0 auto;
-            padding: 40px;
+            padding: 60px;
             background-color: rgba(255, 255, 255, 0.8);
-            border-radius: 10px;
+            border-radius: 20px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             position: absolute;
             top: 50%;

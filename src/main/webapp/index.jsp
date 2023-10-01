@@ -8,7 +8,7 @@
         body {
             font-family: Arial, sans-serif;
             background-color: #f2f2f2;
-            background-image: url('background.jpg'); /* Add your background image URL here */
+            background-image: url('iron.jpg'); /* Add your background image URL here */
             background-size: cover;
             background-repeat: no-repeat;
         }
@@ -21,14 +21,20 @@
         h1 {
             text-align: center;
             color: white;
+            border-radius: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
         }
 
         .container {
-            width: 600px;
+            width: 900px;
             margin: 0 auto;
-            padding: 40px;
+            padding: 60px;
             background-color: rgba(255, 255, 255, 0.8);
-            border-radius: 10px;
+            border-radius: 20px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             position: absolute;
             top: 50%;
@@ -78,7 +84,7 @@
 </head>
 <body>
     <div>
-        <h1>*****WELCOME*****</h1>
+        <h1>WELCOME</h1>
     </div>
     <div class="container">
         <h2>Login</h2>
