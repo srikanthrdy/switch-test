@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+<<<<<<< HEAD     
 To achieve the functionality you described for your web application, you will need to perform several steps, including setting up your MySQL database, creating JSP files, and configuring your servlets. Here's a step-by-step guide:
 
 1. Set Up MySQL Database:
