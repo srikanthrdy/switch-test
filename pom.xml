@@ -55,6 +55,11 @@
         <version>4.12</version> <!-- Use the latest version available -->
         <scope>test</scope>
     </dependency>
+    <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+        <version>8.0.26</version> <!-- Use the latest version available -->
+    </dependency>
 
 
         <!-- Add any additional dependencies your project requires here -->
