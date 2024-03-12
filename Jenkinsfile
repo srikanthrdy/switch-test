@@ -7,7 +7,6 @@ pipeline {
                 sh ./tools.sh
             }
          }
-    }
 
         stage('SonarQube Analysis') {
             steps {
