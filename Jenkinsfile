@@ -1,13 +1,11 @@
 pipeline {
     agent any
 
-    
-
     stages {
         stage('Maven Build') {
             steps {
                 // Build your Maven project
-                withMaven(globalMavenSettingsConfig: '', jdk: '', maven: 'Maven', mavenSettingsConfig: '', traceability: true) {
+                withMaven(globalMavenSettingsConfig: '', jdk: 'Java', maven: 'Maven', mavenSettingsConfig: '', traceability: true) {
                 sh 'mvn clean verify'
             }
          }
@@ -17,7 +15,7 @@ pipeline {
             steps {
                 // Run SonarQube analysis on your code
                 withSonarQubeEnv('SonarQube') {
-                    withMaven(globalMavenSettingsConfig: '', jdk: '', maven: 'Maven', mavenSettingsConfig: '', traceability: true) {
+                    withMaven(globalMavenSettingsConfig: '', jdk: 'Java', maven: 'Maven', mavenSettingsConfig: '', traceability: true) {
                     //sh 'mvn sonar:sonar'
                 }
             }
