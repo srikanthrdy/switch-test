@@ -4,6 +4,7 @@ pipeline {
     stages {
         stage('Maven Build') {
             steps {
+                sh 'pwd'
                 sh 'ls -lrt'
                 sh 'chmod 755 tools.sh'
                 sh 'ls -lart'
