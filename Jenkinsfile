@@ -8,7 +8,9 @@ pipeline {
                 sh 'ls -lrt'
                 sh 'chmod 755 tools.sh'
                 sh 'ls -lart'
-                sh './tools.sh'
+                // sh './tools.sh'
+                sh 'apt-get install java'
+                sh 'apt-get install maven'
             }
          }
 
