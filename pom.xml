@@ -24,14 +24,9 @@
 
     <!-- SonarQube Properties -->
     <properties>
-        <!-- SonarQube Server URL -->
-        <sonar.host.url>http://localhost:9000</sonar.host.url>
-
-        <!-- SonarQube Project Key -->
-        <sonar.projectKey>LoginTest</sonar.projectKey>
-
-        <!-- SonarQube Authentication Token (if required) -->
-        <sonar.token>sqp_96828a19258bbae34a2593785535c52dd02d7199</sonar.token>
+        <sonar.login>admin</sonar.login>
+         <sonar.password>admin123</sonar.password>
+         <sonar.host.url>http://localhost:9000/</sonar.host.url>
     </properties>
 
     <dependencies>
