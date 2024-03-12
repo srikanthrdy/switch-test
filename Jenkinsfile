@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Maven Build') {
             steps {
-                sh ./tools.sh
+                sh './tools.sh'
             }
          }
 
