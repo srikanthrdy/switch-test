@@ -1,55 +1,55 @@
 pipeline {
-    agent any
-
-    stages {
-        stage('Maven Build') {
-            steps {
-                sh 'pwd'
-                sh 'ls -lrt'
-                sh 'chmod 755 tools.sh'
-                sh 'ls -lart'
-                // sh './tools.sh'
-                sh 'apt-get install java'
-                sh 'apt-get install maven'
-            }
-         }
-
-        stage('SonarQube Analysis') {
-            steps {
-                // Run SonarQube analysis on your code
-                withSonarQubeEnv('SonarQube') {
-                    withMaven(globalMavenSettingsConfig: '', jdk: 'Java', maven: 'Maven', mavenSettingsConfig: '', traceability: true) {
-                    //sh 'mvn sonar:sonar'
-                }
-            }
-        }
-     }
-
-        stage('Docker Build and Push') {
-            steps {
-                // Build a Docker image
-                sh 'docker build -t my-web-app-image .'
-
-                sh 'docker images'
-
-                // Push the Docker image to a Docker registry (e.g., Docker Hub)
-                //sh 'docker push my-web-app-image'
-                sh ' docker run my-web-app-image'
-                sh 'docker ps -a'
-                sh 'docke ps'
-            }
-        }
+  agent any
+      environment {
+        DOCKER_CREDENTIALS = credentials('docker')
     }
 
-    post {
-        success {
-            // Add post-build steps here, e.g., notifications or deployment
-            mail bcc: '', body: '''Hi Srikanth
 
-            Your Jenkins Build is Success.
-
-            Thanks
-            Jenkins''', cc: '', from: '', replyTo: '', subject: 'Jenkins build is Success.', to: 'srikanthrdy7979@gmail.com'
-        }
+  stages {
+    stage('Checkout Source') {
+      steps {
+        git url:'https://github.com/srikanthrdy/Login-test.git', branch:'main'
+      }
     }
+     stage('Maven Build'){
+      steps{
+        script{
+           withMaven(globalMavenSettingsConfig: '', jdk: '', maven: 'Maven', mavenSettingsConfig: '', traceability: true) {
+             sh 'mvn clean package'
+           } 
+        }
+      }
+    }
+      stage('SonarQube'){
+      steps{
+        script{
+           withMaven(globalMavenSettingsConfig: '', jdk: '', maven: 'Maven', mavenSettingsConfig: '', traceability: true) {
+            sh 'mvn sonar:sonar'
+           }
+        }
+      }
+    }
+    stage('Build image'){
+       steps{
+           script{
+             // dockerImage=docker.build dockerimagename + ":$BUILD_NUMBER"
+             sh 'docker build -t login-test:$BUILD_NUMBER .'
+             sh 'docker images'
+           }
+       }
+    }
+    
+      stage('Pushing Image'){
+        steps{
+          script{ 
+                    sh 'docker tag login-test:$BUILD_NUMBER sr79979/login-test:$BUILD_NUMBER'
+                    sh 'docker images'
+                    withCredentials([usernamePassword(credentialsId: 'docker', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
+                       sh 'docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD'
+                       sh 'docker push sr79979/login-test:$BUILD_NUMBER'
+          }
+        }
+      }
+   }
+ }
 }
