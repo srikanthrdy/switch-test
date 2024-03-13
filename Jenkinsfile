@@ -60,5 +60,14 @@ pipeline {
         }
       }
    }
+       stage('Running Docker image'){
+        steps{
+          script{ 
+                   sh 'docker pull sr79979/login-test:$BUILD_NUMBER'
+                   sh 'docker run -d -p 7080:8080 --name logintest sr79979/login-test:$BUILD_NUMBER'
+          }
+        }
+      }
+   }
  }
 }
