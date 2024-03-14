@@ -63,10 +63,8 @@ pipeline {
        stage('Running Docker image'){
         steps{
           script{ 
-                   sh 'docker stop logintest'
-                   sh 'docker rm logintest'
                    sh 'docker pull sree1408/login-test:$BUILD_NUMBER'
-                   sh 'docker run -d -p 7080:8080 --name logintest sree1408/login-test:$BUILD_NUMBER'
+                   sh 'docker run -d -p 7080:8080 sree1408/login-test:$BUILD_NUMBER'
                    sh 'docker ps'
           }
         }
