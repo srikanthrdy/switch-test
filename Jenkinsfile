@@ -42,11 +42,11 @@ pipeline {
       stage('Pushing Image'){
         steps{
           script{ 
-                    sh 'docker tag login-test:$BUILD_NUMBER sr79979/login-test:$BUILD_NUMBER'
+                    sh 'docker tag login-test:$BUILD_NUMBER sree1408/login-test:$BUILD_NUMBER'
                     sh 'docker images'
                     withCredentials([usernamePassword(credentialsId: 'docker', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
                        sh 'docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD'
-                       sh 'docker push sr79979/login-test:$BUILD_NUMBER'
+                       sh 'docker push sree1408/login-test:$BUILD_NUMBER'
           }
         }
       }
@@ -63,8 +63,8 @@ pipeline {
        stage('Running Docker image'){
         steps{
           script{ 
-                   sh 'docker pull sr79979/login-test:$BUILD_NUMBER'
-                   sh 'docker run -d -p 7080:8080 --name logintest sr79979/login-test:$BUILD_NUMBER'
+                   sh 'docker pull sree1408/login-test:$BUILD_NUMBER'
+                   sh 'docker run -d -p 7080:8080 --name logintest sree1408/login-test:$BUILD_NUMBER'
                    sh 'docker ps'
           }
         }
