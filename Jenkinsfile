@@ -38,8 +38,9 @@ pipeline {
            }
        }
     }
-    
-      stage('Pushing Image'){
+    stage('Parallel stages'){
+      Parallel {
+        stage('Pushing Image'){
         steps{
           script{ 
                     sh 'docker tag login-test:$BUILD_NUMBER sree1408/login-test:$BUILD_NUMBER'
@@ -60,6 +61,8 @@ pipeline {
         }
       }
    }
+ }
+ }
        stage('Running Docker image'){
         steps{
           script{ 
