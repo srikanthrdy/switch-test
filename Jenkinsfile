@@ -39,7 +39,7 @@ pipeline {
        }
     }
     stage('Parallel stages'){
-      Parallel {
+      parallel {
         stage('Pushing Image'){
         steps{
           script{ 
